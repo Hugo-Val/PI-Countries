@@ -1,4 +1,10 @@
 const { DataTypes } = require('sequelize');
+const { Country } = require('../db.js');
+require('dotenv').config();
+
+const { API_URL } = process.env;
+const axios = require('axios');
+
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -11,47 +17,46 @@ module.exports = (sequelize) => {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            
         },
         image: { 
             type: DataTypes.STRING,
-            allowNull: false,
+            
         },
         continent: {
             type: DataTypes.STRING,
-            allowNull: false,
+            
         },
         capital: {
             type: DataTypes.STRING,
-            allowNull: false,
+            
         },
         subregion: {
             type: DataTypes.STRING,
-            allowNull: false,
+            
         },
         area: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            
         },
         population: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            
         },
-        currencies: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        languages: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        translations: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        borders: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // currencies: {
+        //     type: DataTypes.JSON,
+            
+        // },
+        // languages: {
+        //     type: DataTypes.JSON,
+        // },
+        // translations: {
+        //     type: DataTypes.JSON,
+            
+        // },
+        // borders: {
+        //     type: DataTypes.ARRAY(DataTypes.STRING),
+            
+        // },
   });
 };
