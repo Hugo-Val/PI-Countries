@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
-const { Country } = require('../db.js');
-require('dotenv').config();
 
-const { API_URL } = process.env;
-const axios = require('axios');
+
+
+
+
 
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
