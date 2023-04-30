@@ -8,6 +8,18 @@ require('./db.js');
 
 const server = express();
 
+// Add middlewares here
+
+
+
+
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+
+
+
+
+
 
 
 server.name = 'API';
