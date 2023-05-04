@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { validate } from "./Validation";
 
 
-export default function Activity() {
+export default function Activity(props) {
     const [activityData, setactivityData] = useState({
-        name: "",
+        activityName: "",
         difficulty: "",
         duration: "",
         season: ""
     });
 
     const { errors, setErrors } = useState({
-        name: "",
+        activityName: "",
         difficulty: "",
         duration: "",
         season: ""
@@ -22,15 +22,15 @@ export default function Activity() {
             ...activityData,
             [e.target.name]: e.target.value
         });
-        setErrors(validate({
-            ...activityData,
-            [e.target.name]: e.target.value
-        }));
+        // setErrors(validate({
+        //     ...activityData,
+        //     [e.target.name]: e.target.value
+        // }));
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addActivity(activityData);
+        props.addActivity(activityData);
     };
     const handleDifficulty = (e) => {
         setactivityData({
@@ -52,12 +52,12 @@ export default function Activity() {
                 Name:
                 <input
                     type="text"
-                    name="name"
+                    name="activityName"
                     value={activityData.name}
                     onChange={handleChange} 
                 />
             </label>
-            <p>{errors.name}</p>
+            {/* <p>{errors.activityName}</p> */}
             <select onChange={handleDifficulty}>
                 <option value="difficulty" disabled="disabled">difficulty</option>
                 <option value="1">1 - Very Easy</option>
@@ -66,7 +66,7 @@ export default function Activity() {
                 <option value="4">4 - Hard</option>
                 <option value="5">5 - Very Hard</option>
             </select>
-            <p>{errors.difficulty}</p>
+            {/* <p>{errors.difficulty}</p> */}
             <label>
                 Duration:
                 <input
@@ -76,7 +76,7 @@ export default function Activity() {
                     onChange={handleChange}
                 />
             </label>
-            <p>{errors.duration}</p>
+            {/* <p>{errors.duration}</p> */}
             <select onChange={handleSeason}>
                 <option value="season" disabled="disabled">Season</option>
                 <option value="summer">Summer</option>
@@ -84,7 +84,7 @@ export default function Activity() {
                 <option value="winter">Winter</option>
                 <option value="spring">Spring</option>
             </select>
-            <p>{errors.season}</p>
+            {/* <p>{errors.season}</p> */}
             <button type="submit" onClick={handleSubmit}>Create Activity</button>
             
 

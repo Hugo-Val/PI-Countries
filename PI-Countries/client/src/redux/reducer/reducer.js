@@ -7,7 +7,8 @@ import { GET_ALL_COUNTRIES,
     ADD_ACTIVITY,
     GET_ACTIVITIES,
     ORDER,
-    FILTER
+    FILTER,
+    ADD_LOCATION
  } from "../actions/types";
 
  const initialState = {
@@ -18,12 +19,18 @@ import { GET_ALL_COUNTRIES,
         currentPage: 1,
         activity:{},
         order: [],
+        location : []
  }
 
 
 
 const rootReducer = (state = initialState, { type, payload }) => {
     switch (type) {
+        case ADD_LOCATION:
+            return {
+                ...state,
+                location: [...state.location, payload],
+            }
         case GET_ALL_COUNTRIES:
             return {
                 ...state,

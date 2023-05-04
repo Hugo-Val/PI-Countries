@@ -7,9 +7,17 @@ import { GET_ALL_COUNTRIES,
     ADD_ACTIVITY,
     GET_ACTIVITIES,
     ORDER,
-    FILTER
+    FILTER,
+    ADD_LOCATION
  } from "./types";
 import axios from "axios";
+
+export const addLocation = (path) => {
+  return {
+      type: ADD_LOCATION,
+      payload: path,
+  } 
+}
 
 export const getAllCountries = () => async (dispatch) => {
   try {

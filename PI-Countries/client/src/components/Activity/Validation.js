@@ -1,9 +1,9 @@
 export function validate(input) {
   let errors = {};
-  if (!input.name) {
-    errors.name = 'Name is required';
-  } else if (!/^[a-zA-Z\s]*$/.test(input.name)) {
-    errors.name = 'Name is invalid';
+  if (!input.activityName) {
+    errors.activityName = 'Name is required';
+  } else if (!/^[a-zA-Z\s]*$/.test(input.activityName)) {
+    errors.activityName = 'Name is invalid';
   }
   if (!input.dificulty) {
     errors.dificulty = 'Dificulty is required';

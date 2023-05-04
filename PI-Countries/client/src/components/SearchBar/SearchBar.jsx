@@ -12,7 +12,8 @@ export default function SearchBar({ onSearch }) {
         <>
             <div>   
                 <input
-                    type="text"
+                    type="search"
+                    name='search'
                     placeholder="Search..."
                     value={city}
                     onChange={handleInputChange}
