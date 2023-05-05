@@ -1,5 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from 'react-router-dom';
+import styles from './Nav.module.css';
 
 
 export default function Nav({onSearch}) {
@@ -10,7 +11,7 @@ export default function Nav({onSearch}) {
    
 
     return (
-        <div >
+        <div className={styles.Nav}>
             <Link to='/home'>
                 <button>Home</button>
             </Link>

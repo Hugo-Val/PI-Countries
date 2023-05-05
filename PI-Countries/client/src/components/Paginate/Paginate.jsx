@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nextPage, prevPage, handleNumber } from "../../redux/actions/actions";
+import styles from './Paginate.module.css';
 
 export default function Paginate({cantPages}) {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default function Paginate({cantPages}) {
   // };
 
   return (
-    <div>
+    <div className={styles.Paginate}>
       {
         currentPage > 1 ? (
             <div>

@@ -1,16 +1,19 @@
 import { Link } from 'react-router-dom';
-import './Card.css';
+import styles from './Card.module.css';
 
 export default function Card(props) {
     const { name, image, continent, id } = props;
-    console.log(props, 'props');
+    
     return (
-        <div>
+        <div className={styles.Card}>
             <Link to={`/detail/${id}`}>
-                <h6>{id}</h6>
-                <h1>{name}</h1>
-                <img src={image} alt={name} />
-                <h3>{continent}</h3>
+                
+                <h1 className={styles.Names}>{name}</h1>
+                
+                
+                <img className={styles.Img} src={image} alt={name} />
+                <br />
+                <h3 className={styles.Continent}>{continent}</h3>
             </Link>
         </div>
     )
