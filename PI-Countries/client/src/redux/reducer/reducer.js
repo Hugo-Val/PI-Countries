@@ -69,7 +69,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         case GET_ACTIVITIES:
             return {
                 ...state,
-                activities: payload,
+                activities: [payload],
             }
         case ORDER:
             if (payload === "asc") {

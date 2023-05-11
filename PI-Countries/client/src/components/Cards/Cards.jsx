@@ -4,7 +4,8 @@ import Paginate from '../Paginate/Paginate';
 import { useEffect } from 'react';
 import { getAllCountries, order } from '../../redux/actions/actions';
 import styles from './Cards.module.css';
-
+let suma = 0;
+let countriesFilter;
 export default function Cards() {
     const dispatch = useDispatch();
 
@@ -15,15 +16,29 @@ export default function Cards() {
 
     const { countries } = useSelector(state => state);
     const { currentPage } = useSelector(state => state);
-const { countriesByName } = useSelector(state => state);
+    const { countriesByName } = useSelector(state => state);
 
+    
+    console.log(countriesByName.length, "countriesByName");
+    
+    if (countriesByName.length > 0) {
+        countriesFilter = countriesByName;
+        
+    } else {
+        countriesFilter = countries;
+        
+    }
     let desde = (currentPage - 1) * 4;
     let hasta = desde + 10;
-    let countriesPage = Math.floor(countries.length / 10);
-    let viewCountries = countries?.slice(desde, hasta);
-    console.log(countriesByName, 'countriesByName');
+    
+    let countriesPage = Math.floor(countriesFilter.length / 10);
+    let viewCountries = countriesFilter?.slice(desde, hasta);
+
+    console.log(viewCountries, "viewCountries");
+    
+    
     const handleOrder = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         return dispatch(order(e.target.value));
     }
 
@@ -47,8 +62,9 @@ const { countriesByName } = useSelector(state => state);
                 <div className={styles.Countries}>
                     {
                         viewCountries.map((country) => (
+                            // console.log(country.name, "name"),
                             <Card
-                                key={country.id}
+                                key={suma++}
                                 id={country.id}
                                 name={country.name}
                                 image={country.image}

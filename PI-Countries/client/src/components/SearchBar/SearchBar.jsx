@@ -1,11 +1,20 @@
 import { useState } from 'react';
 
+
+
+
 export default function SearchBar({ onSearch }) {
     const [city, setCity] = useState('');
     
     const handleInputChange = (e) => {
         e.preventDefault();
         setCity(e.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSearch(city);
+        setCity('');
     }
 
     return (
@@ -18,7 +27,7 @@ export default function SearchBar({ onSearch }) {
                     value={city}
                     onChange={handleInputChange}
                 />
-                <button onClick={() => onSearch(city)}>Search</button>
+                <button onClick={handleSubmit}>Search</button>
             </div>
         </>
     )

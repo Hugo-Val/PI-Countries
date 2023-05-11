@@ -19,7 +19,10 @@ useEffect(() => {
 }, [location, dispatch]);
 
 function onSearch(name) {
-  dispatch(getCountriesByName(name));
+  if (name !== "") {
+    return dispatch(getCountriesByName(name));
+  }
+  
 }
 
 

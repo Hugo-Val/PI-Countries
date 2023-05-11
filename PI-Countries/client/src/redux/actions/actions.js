@@ -64,10 +64,11 @@ export const getCountryById = (id) => async (dispatch) => {
 
   export const getCountriesByName = (name) => async (dispatch) => {
     try {
-      const res = await axios.get(`http://localhost:3001/countries?name=${name}`);
+      const res = await axios.get(`http://localhost:3001/countries/name?name=${name}`);
       dispatch({
         type: GET_COUNTRIES_BY_NAME,
         payload: res.data,
+        
       });
     } catch (error) {
       console.log(error);
